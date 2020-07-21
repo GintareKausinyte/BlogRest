@@ -21,6 +21,9 @@ export default () => {
                             <div className="author">{article.author}</div>
                             <div className="date">{new Date(article.createDate).toLocaleDateString()}</div>
                             <div className="read-btn"><NavLink to={`/readBlog/${article.articleId}`}>Read</NavLink></div>
+                            <div className="read-btn">DELETE</div>
+                            <div className="read-btn">UPDATE</div>
+
                         </div>
                     </div>
                 </div>

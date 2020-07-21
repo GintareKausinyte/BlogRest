@@ -34,8 +34,14 @@ private final ArticleService articleService;
 
 //    @PreAuthorize("isAuthenticated()")
     @PostMapping("/create")
-    public Article createArticle(@RequestBody Article article){
-        return articleService.createOrUpdateArticle(article);
+    public Article createArticle(@RequestBody Article article, @AuthenticationPrincipal User user){
+        Article newArticle= new Article();
+        newArticle.setTitle(article.getTitle());
+        newArticle.setText(article.getText());
+        newArticle.setTopic(article.getTopic());
+        newArticle.setAuthor(user.getName());
+        newArticle.setUsername(user.getUsername());
+        return articleService.createOrUpdateArticle(newArticle);
     }
 
 //    @PreAuthorize("isAuthenticated()")

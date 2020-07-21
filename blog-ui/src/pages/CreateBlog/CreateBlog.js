@@ -42,9 +42,8 @@ export default () => {
                         <ErrorMessage className="error" name="title" component="div" />
                         <Field as="textarea" className="input-text" placeholder="Text" type="text" name="text" />
                         <ErrorMessage className="error" name="text" component="div" />
-                        <Field as="input" name="author" type="hidden" value="author"/>
-                        
-                        <ErrorMessage className="error" name="author" component="div" />
+                        {/* <Field as="input" name="author" type="hidden" value="author"/>
+                        <ErrorMessage className="error" name="author" component="div" /> */}
                         <Field as="select" className="select-topic" name="topic">
                             <option selected value="" disabled>Topic</option>
                             <option value="travel">Travel</option>
