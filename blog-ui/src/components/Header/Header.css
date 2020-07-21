@@ -1,0 +1,78 @@
+.header-container{
+  background-color: white;
+  position: fixed;
+  overflow: hidden;
+  height: 63px;
+  width: 100%;
+  top:0;
+  display: block;
+}
+
+.container{
+  width: 720px;
+  margin: auto; 
+}
+
+.static-btn{
+    padding:23px 20px;
+    font-size:14px;
+    text-decoration:none;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor: pointer;
+    border:none;
+    font-family: 'Oswald', sans-serif;
+    display:inline;
+    color: black;
+  }
+  .main-title{
+    margin: 0;
+    padding-top: 0;
+    color:#333333;
+    font-weight:400;
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    text-decoration: none;
+  }
+  .align{
+  display: flex;
+	align-items: center;
+
+  }
+  .static-btn:hover{
+    border:none;
+     background:rgba(0, 0, 0, 0.027);
+     color:#000000;
+   }
+   .selected{
+     color:rgb(0, 0, 0);
+     background:rgba(0, 0, 0, 0.027);
+   }
+   .float-left{
+    float:left;
+   }
+   .float-right{
+     float: right;
+     margin-top: 18px;
+   }
+   .lang-btn{
+    margin-right: 30px;
+    margin-top: 18px;
+    font-size:15px;
+    text-decoration:none;
+    text-transform:uppercase;
+    cursor: pointer;
+    border:none;
+    font-family: 'Oswald', sans-serif;
+    display:inline;
+    outline: none;
+    position: relative;
+  }
+  .float{
+    float: right;
+  }
+
+
+
+   
+  
