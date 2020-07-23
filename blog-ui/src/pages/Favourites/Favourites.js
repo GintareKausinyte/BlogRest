@@ -1,14 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { FavouritesContext } from '../../App'
+import { NavLink } from "react-router-dom";
 import './Favourites.css'
 
 export default () => {
-    let local = localStorage.getItem("favourites")
- 
+
+    const {fav, deleteFav} = useContext(FavouritesContext)
     return (
-        <div>
-            {/* {!local.length ? ((<div>{local}</div>))
-            :((<div className="nolist">You don't have favourite articles</div>))} */}
-            {local.length}
+        <div className="container">
+               <h3 className="headline">Favourites |<span className="sub-title"> Favourite article List</span></h3>
+                {fav
+                    .map(article => (
+                        <div className="align-products" key={article.articleId}>
+                            <div className="article-container">
+                                <div className="margin-container">
+                                    <div className="title" name={article.title}>{article.title}</div>
+                                    <div className="author">{article.author}</div>
+                                    <div className="date">{new Date(article.createDate).toLocaleDateString()}</div>
+                                    <div className="read-btn"><NavLink to={`/readBlog/${article.articleId}`}>Read</NavLink></div>
+                                    <div onClick={()=>deleteFav(article.articleId)}>Delete</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    ))}
         </div>
     )
 }

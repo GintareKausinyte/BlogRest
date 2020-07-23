@@ -1,10 +1,13 @@
 import React from 'react'
 import './Registration.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import userApi from '../../api/userApi'
+import { useHistory } from "react-router-dom";
 import * as Yup from 'yup'
 
 
 export default () => {
+    const history=useHistory();
     return (
         <div className="align_registration">
             <Formik
@@ -12,10 +15,10 @@ export default () => {
                   validationSchema={Yup.object().shape({
                       username: Yup.string()
                       .required('Username is required')
-                      .min(5, 'Username must contain at least 5 characters'),
+                      .min(4, 'Username must contain at least 4 characters'),
                       password: Yup.string()
                       .required('Password field is required')
-                      .min(5, 'Password must contain at least 5 characters'),
+                      .min(4, 'Password must contain at least 4 characters'),
                       name: Yup.string()
                       .required('Name is required'),
                       passwordConfirmation: Yup.string()
@@ -23,7 +26,8 @@ export default () => {
                       .required('Repeat your password'),
                   })}
                   onSubmit={values => {
-                          //kodas
+                          userApi.createUser(values)
+                          history.push("/logIn")
                   }}
             >
                 {() => (

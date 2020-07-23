@@ -20,39 +20,37 @@ private final ArticleService articleService;
         this.articleService = articleService;
     }
 
-//    @PreAuthorize("permitAll")
+
     @GetMapping
     public Page<Article> getAllArticles(@RequestParam(name = "pageNumber", defaultValue = "1")int pageNumber, @RequestParam(name="pageSize", defaultValue = "5")int pageSize){
         return articleService.getAllArticles(pageNumber, pageSize);
     }
-//    @PreAuthorize("permitAll()")
+
     @GetMapping("/{id}")
     public Article readArticle(@PathVariable Long id){
         return articleService.getArticleById(id);
     }
 
 
-//    @PreAuthorize("isAuthenticated()")
+
     @PostMapping("/create")
     public Article createArticle(@RequestBody Article article, @AuthenticationPrincipal User user){
-        Article newArticle= new Article();
-        newArticle.setTitle(article.getTitle());
-        newArticle.setText(article.getText());
-        newArticle.setTopic(article.getTopic());
-        newArticle.setAuthor(user.getName());
-        newArticle.setUsername(user.getUsername());
-        return articleService.createOrUpdateArticle(newArticle);
+        article.setAuthor(user.getName());
+        article.setUsername(user.getUsername());
+        return articleService.createOrUpdateArticle(article);
     }
 
-//    @PreAuthorize("isAuthenticated()")
+
     @GetMapping("/delete/{id}")
     public void deleteArticle(@PathVariable Long id){
         articleService.deleteArticleById(id);
     }
 
-//    @PreAuthorize("isAuthenticated()")
-    @PostMapping("/update/{id}")
-    public Article updateArticle(@RequestBody Article article){
+
+    @PostMapping("/update")
+    public Article updateArticle(@RequestBody Article article, @AuthenticationPrincipal User user){
+        article.setAuthor(user.getName());
+        article.setUsername(user.getUsername());
         return articleService.createOrUpdateArticle(article);
     }
 

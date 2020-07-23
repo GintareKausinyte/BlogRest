@@ -17,7 +17,6 @@ public class TopicController {
         this.articleService = articleService;
     }
 
-    @PreAuthorize("permitAll()")
     @GetMapping
     public Page<Article> getAllArticlesByTopic(@PathVariable String topic, @RequestParam(name = "pageNumber", defaultValue = "0")int pageNumber, @RequestParam(name="pageSize", defaultValue = "5")int pageSize){
         return articleService.getByTopic(topic, pageNumber, pageSize);

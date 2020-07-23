@@ -21,13 +21,15 @@ export default () => {
     const loggedInBlock = loggedIn() ?
         (
             <>
+                <NavLink to="/createBlog" className="static-btn" activeClassName="selected">Write New</NavLink>
                 <NavLink to="/userArticles" className="static-btn" activeClassName="selected">Your Articles</NavLink>
                 <Link to="/logOut" className="static-btn" activeClassName="selected" onClick={logoutClick}>Log Out</Link>
             </>
         ) :
         <>
-        <NavLink to="/logIn" className="static-btn" activeClassName="selected">Log In</NavLink>
+        <Link to="/logIn" className="static-btn" activeClassName="selected">Write New</Link>
         <NavLink to="/registration" className="static-btn" activeClassName="selected">Register</NavLink>
+        <NavLink to="/logIn" className="static-btn" activeClassName="selected">Log In</NavLink>
         </>
     return (
         <div className="header-container">
@@ -38,7 +40,6 @@ export default () => {
             <div className='container'>
                 <div className="float-right">
                     <NavLink to="/blogList" className="static-btn" activeClassName="selected">All Articles</NavLink>
-                    <NavLink to="/createBlog" className="static-btn" activeClassName="selected">Write New</NavLink>
                     {loggedInBlock}
                     <NavLink to="/favourites" className="static-btn" activeClassName="selected"><FavoriteBorderTwoToneIcon fontSize="small" color="action" /></NavLink>
                 </div>

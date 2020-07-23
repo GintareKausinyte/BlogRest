@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,16 +24,20 @@ public class ArticleService {
     }
 
     public Page<Article> getAllArticles(int pageNumber, int pageSize){
-        return  articleRepository.findAll(PageRequest.of(pageNumber, pageSize));
+        return articleRepository.findAll(PageRequest.of(pageNumber, pageSize));
     }
     public Article getArticleById(Long id){
         return articleRepository.findById(id).orElseThrow(()->new ArticleNotFoundException("Article with "+ id +" not found"));
     }
-    public Page<Article> getByTopic(String topic, int pageNumber, int pageSize){//kaip grazinti page
+    public Page<Article> getByTopic(String topic, int pageNumber, int pageSize){
         return topicRepository.findByTopicIgnoreCase(topic, PageRequest.of(pageNumber, pageSize));
     }
     public List<Article> getByUserName(String username){
-        return articleRepository.findArticleByUsername(username);
+        if(articleRepository.findArticleByUsername(username).isEmpty()){
+            return Collections.emptyList();
+        }else {
+            return articleRepository.findArticleByUsername(username);
+        }
     }
 
     public void deleteArticleById(Long id){articleRepository.deleteById(id);}

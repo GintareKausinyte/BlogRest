@@ -62,9 +62,9 @@
 }
 .wlcm{
     margin-top: 5px;
-    margin-left: 5px;
+    margin-left: -10px;
     text-decoration: none;
-    color:  rgba(38, 177, 212, 0.712);
+    color:  rgba(38, 177, 212, 0.931);
     font-family: 'Oswald', sans-serif;
     
 }

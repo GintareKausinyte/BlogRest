@@ -10,8 +10,9 @@ import ArticleListByTopic from '../../pages/AricleListByTopic'
 import SubmittedPage from '../../pages/SubmittedPage'
 import Favourites from '../../pages/Favourites/Favourites';
 import UserArticles from '../../pages/UserArticles';
-
-
+import DeleteArticle from '../../pages/DeleteArticle';
+import DeletedPage from '../../pages/DeletedPage';
+import UpdateArticle from '../../pages/UpdateArticle';
 
 export default ()=>(
 <Switch>
@@ -21,6 +22,12 @@ export default ()=>(
     </Route>
     <Route exact path='/readBlog/:id'>
        <ReadBlog/>
+    </Route>
+    <Route exact path='/userArticle/:id'>
+       <DeleteArticle/>
+    </Route>
+    <Route exact path='/update/:id'>
+       <UpdateArticle/>
     </Route>
     <Route exact path='/blogList'>
        <ArticleList/>
@@ -45,6 +52,9 @@ export default ()=>(
     </Route>
     <Route exact path='/submitted'>
       <SubmittedPage/>
+    </Route>
+    <Route exact path='/deleted'>
+      <DeletedPage/>
     </Route>
      <Redirect exact from='/' to='/home'/>
 </Switch>

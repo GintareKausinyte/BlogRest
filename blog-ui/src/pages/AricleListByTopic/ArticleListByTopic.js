@@ -34,7 +34,7 @@ export default () => {
   
          
 
-    }, [topic], [page])
+    }, [page], [topic])
 
 
     return (

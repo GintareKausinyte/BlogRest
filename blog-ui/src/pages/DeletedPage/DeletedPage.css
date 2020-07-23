@@ -1,0 +1,16 @@
+.height{
+    height: 60vh;
+    }
+    .align-center{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        font-size: 18px;
+    }
+    .submit-text{
+        font-family: 'Oswald', sans-serif;
+        margin-bottom: 30px;
+    }
