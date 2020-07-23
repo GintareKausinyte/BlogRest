@@ -7,12 +7,12 @@ import './UpdateArticle.css'
 import * as Yup from 'yup'
 
 const validationSchema = Yup.object().shape({
-    articleTitle: Yup.string()
+    title: Yup.string()
         .required('Title is required')
         .min(5, 'Title must contain at least 5 characters'),
-    articleText: Yup.string()
+    description: Yup.string()
         .required('Text field is required'),
-    articleTopic: Yup.string()
+    topic: Yup.string()
         .required('Topic is required')
 })
 export default () => {
@@ -41,14 +41,15 @@ export default () => {
                     description: article.description,
                     topic: article.topic,
                     author: article.name,
-                    username: article.username
+                    username: article.username,
+                    createDate: article.createDate
                 }}
                   
                 validationSchema={validationSchema}
                
                 onSubmit={values => {
                     console.log("values ", values)
-                    articlesApi.createArticle(values)
+                    articlesApi.updateArticle(values)
                     history.push("/submitted")
                
                 }}
@@ -73,11 +74,9 @@ export default () => {
                             <option value="technology">Technology</option>
                         </Field>
                         <ErrorMessage className="error" name="topic" component="div" />
-                        {/* <Field type="hidden" name="articleAuthor" />
-                        <Field type="hidden" name="articleUsername" /> */}
-                        {/* <Field type="hidden" name="articleDate" /> */}
                         <Field type="hidden" name="author"/>
                         <Field type="hidden" name="username"/>
+                        <Field type="hidden" name="createDate"/>
                         <input className="create-btn" type="submit" value="Update" />
                     </Form>
                 )}
