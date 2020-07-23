@@ -20,7 +20,7 @@ export default () => {
         <div className="container">
             <h3 className="headline">Write New |<span className="sub-title"> Create New Article</span></h3>
             <Formik
-                initialValues={{ title: '', text: '', topic: '', author: '' }}
+                initialValues={{ title: '', description: '', topic: '', author: '' }}
                 validationSchema={Yup.object().shape({
                     title: Yup.string()
                         .required('Title is required')
@@ -40,8 +40,8 @@ export default () => {
                     <Form method="post" className="forms">
                         <Field className="input-name" placeholder="Title" type="text" name="title" />
                         <ErrorMessage className="error" name="title" component="div" />
-                        <Field as="textarea" className="input-text" placeholder="Text" type="text" name="text" />
-                        <ErrorMessage className="error" name="text" component="div" />
+                        <Field as="textarea" className="input-text" placeholder="Text" type="text" name="description" />
+                        <ErrorMessage className="error" name="description" component="div" />
                         {/* <Field as="input" name="author" type="hidden" value="author"/>
                         <ErrorMessage className="error" name="author" component="div" /> */}
                         <Field as="select" className="select-topic" name="topic">

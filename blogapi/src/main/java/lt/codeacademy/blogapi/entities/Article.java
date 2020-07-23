@@ -17,16 +17,16 @@ public class Article {
     @Column(name = "article_id")
     private Long articleId;
     //spring boot validation starter
-    @Column(name = "title", nullable = false)
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "text", nullable = false, length = 5000)
-    private String text;
+    @Column(name = "description", length = 5000)
+    private String description;
 
-    @Column(name = "topic", nullable = false)
+    @Column(name = "topic")
     private String topic;
     //pridet validacijas sutampancias su front-endu
-    @Column(name = "author", nullable = false)
+    @Column(name = "author")
     private String author;
 
     @Column(name="username")

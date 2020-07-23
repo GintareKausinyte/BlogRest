@@ -17,10 +17,9 @@ export default {
     deleteArticle(id){
         return HTTP.get(`http://localhost:8080/articles/delete/${id}`)
     },
-    updateArticle(article){
-        return HTTP.post('http://localhost:8080/articles/update', article)
-    }
-    ,
+    updateArticle(arti){
+        return HTTP.post('http://localhost:8080/articles/update', arti)
+    },
     fetchUserArticles(){
         return HTTP.get(`http://localhost:8080/articles/userArticles`)
     }

@@ -22,7 +22,7 @@ export default ()=>{
         <div className="container">
             <div className="text-container">
                     <h3>{article.title}</h3>
-                    <p>{article.text}</p>
+                    <p>{article.description}</p>
                     <h5>{article.author}</h5>
                     <button onClick={()=>{
                         articlesApi.deleteArticle(id);

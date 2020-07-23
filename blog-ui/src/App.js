@@ -15,44 +15,46 @@ function App() {
 
   const favouritesContextState = {
     fav,
-    addFav: (article)=>{
-    if (!fav.some((oldArticle) => oldArticle.articleId === article.articleId)) {
-     setFavourites([...fav, article]);
-    localStorage.setItem("favourites", JSON.stringify(fav))
-    // setFavourites(newFavorites)
-    }else{
-    console.log("already exists")
-    }},
+    addFav: (article) => {
+      if (!fav.some((oldArticle) => oldArticle.articleId === article.articleId)) {
+        setFavourites([...fav, article]);
+        localStorage.setItem("favourites", JSON.stringify(fav))
+        // setFavourites(newFavorites)
+      } else {
+        console.log("already exists")
+      }
+    },
 
-    deleteFav: (id)=>{ 
-    setFavourites(fav?.filter((favArticle) => favArticle.articleId !== id));
-    localStorage.setItem("favourites", JSON.stringify(fav))
-    // setFavourites(newFavorites)
-    }}
+    deleteFav: (id) => {
+      setFavourites(fav?.filter((favArticle) => favArticle.articleId !== id));
+      localStorage.setItem("favourites", JSON.stringify(fav))
+      // setFavourites(newFavorites)
+    }
+  }
 
   const userContextState = {
-  user,
-  login: (user) => setUser(user),
-  logout: () => setUser(null),
-  loggedIn: () => !!user
-  //user!==null
-}
-// console.log(user)
-// console.log(fav)
-return (
+    user,
+    login: (user) => setUser(user),
+    logout: () => setUser(null),
+    loggedIn: () => !!user
+    //user!==null
+  }
+  // console.log(user)
+  // console.log(fav)
+  return (
 
-  <UserContext.Provider value={userContextState}>
-    <FavouritesContext.Provider value={favouritesContextState}>
-      <Router>
-        <Header />
-        <DropDown />
-        <Content />
-      </Router>
-    </FavouritesContext.Provider>
-  </UserContext.Provider>
-)
+    <UserContext.Provider value={userContextState}>
+      <FavouritesContext.Provider value={favouritesContextState}>
+        <Router>
+          <Header />
+          <DropDown />
+          <Content />
+        </Router>
+      </FavouritesContext.Provider>
+    </UserContext.Provider>
+  )
 }
 
 export default App
 export { UserContext }
-export {FavouritesContext}
+export { FavouritesContext }

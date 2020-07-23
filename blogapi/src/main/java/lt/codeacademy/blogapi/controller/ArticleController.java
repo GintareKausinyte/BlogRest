@@ -49,6 +49,7 @@ private final ArticleService articleService;
 
     @PostMapping("/update")
     public Article updateArticle(@RequestBody Article article, @AuthenticationPrincipal User user){
+        article.setArticleId(article.getArticleId());
         article.setAuthor(user.getName());
         article.setUsername(user.getUsername());
         return articleService.createOrUpdateArticle(article);

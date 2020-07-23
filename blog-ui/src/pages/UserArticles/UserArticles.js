@@ -22,9 +22,6 @@ export default () => {
             console.log(userArticles)
         //    const s=()=> userArticles.length>0 ? setIsArticles(true) : setIsArticles(false)
 
-
-
-
     }, [])
 
   

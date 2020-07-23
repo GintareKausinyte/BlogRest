@@ -7,30 +7,26 @@ import './UpdateArticle.css'
 import * as Yup from 'yup'
 
 const validationSchema = Yup.object().shape({
-    title: Yup.string()
+    articleTitle: Yup.string()
         .required('Title is required')
         .min(5, 'Title must contain at least 5 characters'),
-    text: Yup.string()
+    articleText: Yup.string()
         .required('Text field is required'),
-    topic: Yup.string()
+    articleTopic: Yup.string()
         .required('Topic is required')
 })
 export default () => {
-
     const { id } = useParams();
-    const [article, setArticle] = useState();
     const history = useHistory();
 
     useEffect(() => {
         articlesApi.fetchArticlesById(id)
             .then(response => setArticle(response.data))
 
-    }, {id})
-    const submit=(values)=>{
-        articlesApi.updateArticle(values)
-        history.push("/submitted")
-    
-    }
+    }, [id])
+
+
+    const [article, setArticle] = useState();
    console.log(article)
     return (
 
@@ -40,28 +36,32 @@ export default () => {
             article ? 
             <Formik
                 initialValues={{
-                    id: article.articleId,
+                    articleId: article.articleId,
                     title: article.title,
-                    text: article.text,
+                    description: article.description,
                     topic: article.topic,
-               
+                    author: article.name,
+                    username: article.username
                 }}
                   
                 validationSchema={validationSchema}
                
-                onSubmit={submit}
+                onSubmit={values => {
+                    console.log("values ", values)
+                    articlesApi.createArticle(values)
+                    history.push("/submitted")
+               
+                }}
                 >
                 {() => (
                     <Form className="forms">
-                        
-                        <Field type="hidden" name="id"/>
-                        {console.log(article.articleId)}
+                     <Field type="hidden" name="articleId"/>
 
                         <Field className="input-name"  type="text" name="title"/>
                         <ErrorMessage className="error" name="title" component="div" />
 
-                        <Field as="textarea" className="input-text" type="text" name="text"/>
-                        <ErrorMessage className="error" name="text" component="div" />
+                        <Field as="textarea" className="input-text" type="text" name="description"/>
+                        <ErrorMessage className="error" name="description" component="div" />
 
 
                         <Field as="select" className="select-topic" name="topic">
@@ -73,8 +73,11 @@ export default () => {
                             <option value="technology">Technology</option>
                         </Field>
                         <ErrorMessage className="error" name="topic" component="div" />
-
-
+                        {/* <Field type="hidden" name="articleAuthor" />
+                        <Field type="hidden" name="articleUsername" /> */}
+                        {/* <Field type="hidden" name="articleDate" /> */}
+                        <Field type="hidden" name="author"/>
+                        <Field type="hidden" name="username"/>
                         <input className="create-btn" type="submit" value="Update" />
                     </Form>
                 )}
