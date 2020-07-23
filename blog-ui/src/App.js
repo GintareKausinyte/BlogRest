@@ -11,10 +11,11 @@ function App() {
 
   const [user, setUser] = useState(null);
   const [fav, setFavourites] = useState([]);
-
-
+  const favNumber=fav.length;
+  
   const favouritesContextState = {
     fav,
+    favNumber,
     addFav: (article) => {
       if (!fav.some((oldArticle) => oldArticle.articleId === article.articleId)) {
         setFavourites([...fav, article]);

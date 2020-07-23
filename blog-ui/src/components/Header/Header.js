@@ -5,11 +5,16 @@ import { setCredentials } from '../../api'
 import FavoriteBorderTwoToneIcon from '@material-ui/icons/FavoriteBorderTwoTone';
 import { UserContext } from '../../App'
 import { useHistory } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
+import { FavouritesContext } from '../../App'
+import Badge from '@material-ui/core/Badge';
+
 
 export default () => {
-    const {user, logout, loggedIn} = useContext(UserContext)
-    const history=useHistory();
-
+    const { user, logout, loggedIn } = useContext(UserContext)
+    const {favNumber} = useContext(FavouritesContext)
+    const history = useHistory();
+  
     const logoutClick = (e) => {
         e.preventDefault()
         setCredentials(null)
@@ -17,6 +22,7 @@ export default () => {
         history.push('/blogList')
 
     }
+
 
     const loggedInBlock = loggedIn() ?
         (
@@ -27,9 +33,9 @@ export default () => {
             </>
         ) :
         <>
-        <Link to="/logIn" className="static-btn" activeClassName="selected">Write New</Link>
-        <NavLink to="/registration" className="static-btn" activeClassName="selected">Register</NavLink>
-        <NavLink to="/logIn" className="static-btn" activeClassName="selected">Log In</NavLink>
+            <Link to="/logIn" className="static-btn" activeClassName="selected">Write New</Link>
+            <NavLink to="/registration" className="static-btn" activeClassName="selected">Register</NavLink>
+            <NavLink to="/logIn" className="static-btn" activeClassName="selected">Log In</NavLink>
         </>
     return (
         <div className="header-container">
@@ -41,7 +47,15 @@ export default () => {
                 <div className="float-right">
                     <NavLink to="/blogList" className="static-btn" activeClassName="selected">All Articles</NavLink>
                     {loggedInBlock}
-                    <NavLink to="/favourites" className="static-btn" activeClassName="selected"><FavoriteBorderTwoToneIcon fontSize="small" color="action" /></NavLink>
+                    <Link to="/favourites" className="static-btn">
+                        
+                
+                            <Badge badgeContent={favNumber} color="primary" fontSize="small">
+                            <FavoriteBorderTwoToneIcon fontSize="medium" color="action" />
+                            </Badge>
+                        
+
+                    </Link>
                 </div>
                 <div className="float-left">
                     <Link className="main-title" to="/blogList">Blogger</Link>

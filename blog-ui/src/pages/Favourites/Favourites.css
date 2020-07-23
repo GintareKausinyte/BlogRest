@@ -1,3 +1,7 @@
-.nolist{
-    
+.font{
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    display:block;
+    color:  rgb(29, 165, 199);
+    margin-top: 100px !important;
 }

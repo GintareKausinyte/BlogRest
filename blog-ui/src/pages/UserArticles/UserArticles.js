@@ -8,7 +8,6 @@ import './UserArticles.css'
 export default () => {
 
     const [userArticles, setUserArticles] = useState([]);
-    const [isArticles, setIsArticles]=useState(true)
     const history = useHistory();
 
     const deleteUserArticle = (id) => {
@@ -29,7 +28,7 @@ export default () => {
 
     return (
         <div className="container">
-            {isArticles ? ((
+            {userArticles.length >0 ? 
             <div>
                 {userArticles
                     .map(article => (
@@ -50,7 +49,9 @@ export default () => {
                     ))}
 
             </div>
-            )):((<div>User don't have articles </div>))}  
+            : <div className="container">
+            <div className="noList font">Empty</div>
+            </div>}  
         </div>
     )
 }

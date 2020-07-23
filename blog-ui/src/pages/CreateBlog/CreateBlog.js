@@ -25,7 +25,7 @@ export default () => {
                     title: Yup.string()
                         .required('Title is required')
                         .min(5, 'Title must contain at least 5 characters'),
-                    text: Yup.string()
+                    description: Yup.string()
                         .required('Text field is required'),
                     topic: Yup.string()
                         .required('Topic is required')

@@ -13,22 +13,23 @@ import UserArticles from '../../pages/UserArticles';
 import DeleteArticle from '../../pages/DeleteArticle';
 import DeletedPage from '../../pages/DeletedPage';
 import UpdateArticle from '../../pages/UpdateArticle';
+import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
 export default ()=>(
 <Switch>
 
-    <Route exact path='/createBlog'>
+    <PrivateRoute exact path='/createBlog'>
         <CreateBlog/>
-    </Route>
+    </PrivateRoute>
     <Route exact path='/readBlog/:id'>
        <ReadBlog/>
     </Route>
-    <Route exact path='/userArticle/:id'>
+    <PrivateRoute exact path='/userArticle/:id'>
        <DeleteArticle/>
-    </Route>
-    <Route exact path='/update/:id'>
+    </PrivateRoute>
+    <PrivateRoute exact path='/update/:id'>
        <UpdateArticle/>
-    </Route>
+    </PrivateRoute>
     <Route exact path='/blogList'>
        <ArticleList/>
     </Route>
@@ -38,9 +39,9 @@ export default ()=>(
     <Route exact path='/blogList/:topic'>
        <ArticleListByTopic/>
     </Route>
-    <Route exact path='/userArticles'>
+    <PrivateRoute exact path='/userArticles'>
        <UserArticles/>
-    </Route>
+    </PrivateRoute>
     <Route exact path='/logIn'>
        <LogIn/>
     </Route>
