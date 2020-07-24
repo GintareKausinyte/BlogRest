@@ -35,12 +35,12 @@ export default () => {
                         <div className="align-products" key={article.articleId}>
                             <div className="article-container">
                                 <div className="margin-container">
-                                    <div className="title" name={article.title}>{article.title}</div>
-                                    <div className="author">{article.author}</div>
-                                    <div className="date">{new Date(article.createDate).toLocaleDateString()}</div>
-                                    <div className="read-btn"><NavLink to={`/readBlog/${article.articleId}`}>Read</NavLink></div>
-                                    <div className="read-btn"><NavLink to={`/userArticle/${article.articleId}`}>DELETE</NavLink></div>
-                                    <div className="read-btn"><NavLink to={`/update/${article.articleId}`}>UPDATE</NavLink></div>
+                                <div className="title-user" name={article.title}>{article.title}</div>
+                                    <div className="author-user">{article.author}</div>
+                                    <div className="date-user">{new Date(article.createDate).toLocaleDateString()}</div>
+                                    <div className="update-btn"><NavLink to={`/update/${article.articleId}`} className="read-btn-text">Update</NavLink></div>
+                                    <div className="delete-btn"><NavLink to={`/userArticle/${article.articleId}`} className="read-btn-text">Delete</NavLink></div>
+                                    <div className="read-btn-user"><Link to={`/readBlog/${article.articleId}`} className="read-btn-text">Read</Link></div>
 
                                 </div>
                             </div>
@@ -50,7 +50,7 @@ export default () => {
 
             </div>
             : <div className="container">
-            <div className="noList font">Empty</div>
+            <div className="noList font">---</div>
             </div>}  
         </div>
     )

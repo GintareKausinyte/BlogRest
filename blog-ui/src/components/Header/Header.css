@@ -7,6 +7,10 @@
   top:0;
   display: block;
 }
+.cl{
+  color: gray;
+  background-color: gray;
+}
 
 .container{
   width: 720px;

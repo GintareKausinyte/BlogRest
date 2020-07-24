@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [fav, setFavourites] = useState([]);
   const favNumber=fav.length;
-  
+
   const favouritesContextState = {
     fav,
     favNumber,
@@ -20,6 +20,7 @@ function App() {
       if (!fav.some((oldArticle) => oldArticle.articleId === article.articleId)) {
         setFavourites([...fav, article]);
         localStorage.setItem("favourites", JSON.stringify(fav))
+        let newList=localStorage.getItem("favourites")
         // setFavourites(newFavorites)
       } else {
         console.log("already exists")

@@ -24,7 +24,7 @@ export default ()=>{
                     <h3>{article.title}</h3>
                     <p>{article.description}</p>
                     <h5>{article.author}</h5>
-                    <button onClick={()=>{
+                    <button className="button" onClick={()=>{
                         articlesApi.deleteArticle(id);
                         history.push('/deleted')}}>DELETE</button>
             </div>

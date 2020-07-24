@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 import { FavouritesContext } from '../../App'
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default () => {
 
@@ -52,11 +52,13 @@ export default () => {
                                 <div className="margin-container">
                                     <div className="title" name={article.title}>{article.title}</div>
                                     <div className="author">{article.author}</div>
+                                    <div className="read-btn"><Link to={`/readBlog/${article.articleId}`} className="read-btn-text">Read</Link></div>
+                                    <div>
                                     <div className="date">{new Date(article.createDate).toLocaleDateString()}</div>
-                                    <div className="read-btn"><NavLink to={`/readBlog/${article.articleId}`}>Read</NavLink></div>
-                                    <div onClick={()=>addFav(article)}>Favourites</div>
-                                    <div onClick={()=>deleteFav(article.articleId)}>Delete</div>
-                                    {/* <div>{favourites.map(item=>( <div className="title" name={item.title}>{item.title}</div>))}</div> */}
+                                    </div>
+                                    <div className="addfav-btn" onClick={()=>addFav(article)}>Add to favourites</div>
+                                    <div className= "deletefav-btn" onClick={()=>deleteFav(article.articleId)}>Delete from favourites</div>
+            
                                 </div>
                             </div>
                         </div>

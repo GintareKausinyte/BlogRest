@@ -17,19 +17,19 @@ public class Article {
     @Column(name = "article_id")
     private Long articleId;
     //spring boot validation starter
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "description", length = 5000)
+    @Column(name = "description", length = 5000, nullable = false)
     private String description;
 
-    @Column(name = "topic")
+    @Column(name = "topic", nullable = false)
     private String topic;
-    //pridet validacijas sutampancias su front-endu
-    @Column(name = "author")
+
+    @Column(name = "author", nullable = false)
     private String author;
 
-    @Column(name="username")
+    @Column(name="username", nullable = false)
     private String username;
 
     @CreationTimestamp

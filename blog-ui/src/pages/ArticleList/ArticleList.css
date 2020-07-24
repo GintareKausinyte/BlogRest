@@ -4,7 +4,7 @@
     margin: auto;
   }
 .article-container{
-    height: 220px;
+    height: 150px;
     width: 100%;
     background: white;
     margin-top: 20px;
@@ -34,16 +34,17 @@
 }
 
 .margin-container{
-width: 100%;
-margin: 20px;
+margin-top: 50px;
 
 }
 .title{
   margin-top: 5px;
-  font-weight: lighter;
-  font-size: 14px;
+  font-weight: bold;
+  font-size: 16px;
   display: inline-block;
-  width: 10%;
+  width: 40%;
+  font-family: 'Oswald', sans-serif;
+  text-align: left;
   /* text-align: left; */
 }
 .image{
@@ -53,18 +54,40 @@ margin: 20px;
 }
 .author{
   color: rgb(80, 80, 80);
-  width: 10%;
+  width: 30%;
   display: inline-block;
-  /* text-align: left; */
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  text-align: left;  /* text-align: left; */
 }
 .date{
-  width: 10%;
   display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 14px;
+  margin-right: 80px;
+  margin-top: 20px;
+  color: gray;
+  float: right;
 }
 .read-btn{
   width: 10%;
   display: inline-block;
+  border-radius: 2px;
+  background-color: rgba(26, 143, 173, 0.548);
+
 }
+.read-btn-text{
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 16px;
+}
+.read-btn:hover{
+  cursor: pointer;
+  background-color: #08a0a8d7;
+}
+
 .bottom{
   padding-bottom: 30px;
   font-family: 'Oswald', sans-serif;
@@ -74,4 +97,38 @@ margin: 20px;
   bottom:0;
   display: flex;
   justify-content: center;
+}
+.addfav-btn{
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  display: inline-block;
+  background-color: rgba(97, 97, 97, 0.075);
+  margin-top: 43px;
+  margin-left: 65px;
+  padding: 4px;
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  float: left;
+}
+.deletefav-btn{
+  background-color:  rgba(97, 97, 97, 0.075);
+  margin-top: 43px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  float: left;
+}
+.deletefav-btn:hover{
+cursor: pointer;
+background-color: rgba(143, 3, 3, 0.137);
+}
+.addfav-btn:hover{
+  cursor: pointer;
+background-color: rgba(38, 136, 58, 0.219);
 }
