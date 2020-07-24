@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import './Favourites.css'
 
+
 export default () => {
 
     const {favNumber, fav, deleteFav } = useContext(FavouritesContext)
