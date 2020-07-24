@@ -9,7 +9,7 @@ import { NavLink, Link } from "react-router-dom";
 
 export default () => {
 
-    const { addFav, deleteFav} = useContext(FavouritesContext)
+    const { addFav, deleteFav } = useContext(FavouritesContext)
     const [articles, setArticles] = useState({ content: [] });
     const [page, setPage] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
@@ -50,16 +50,16 @@ export default () => {
                         <div className="align-products" key={article.articleId}>
                             <div className="article-container">
                                 <div className="margin-container">
-                                    <div className="title" name={article.title}>{article.title}</div>
-                                    <div className="author">{article.author}</div>
+                                 <img className="image" src="https://images.pexels.com/photos/1445416/pexels-photo-1445416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></img>
+                                    {/* <div className="author">{article.author}</div> */}
                                     <div className="read-btn"><Link to={`/readBlog/${article.articleId}`} className="read-btn-text">Read</Link></div>
-                                    <div>
-                                    <div className="date">{new Date(article.createDate).toLocaleDateString()}</div>
-                                    </div>
-                                    <div className="addfav-btn" onClick={()=>addFav(article)}>Add to favourites</div>
-                                    <div className= "deletefav-btn" onClick={()=>deleteFav(article.articleId)}>Delete from favourites</div>
-            
                                 </div>
+                                <div className="margin-container-info">
+                                <div className="addfav-btn" onClick={() => addFav(article)}>Add to favourites</div>
+                                <div className="deletefav-btn" onClick={() => deleteFav(article.articleId)}>Delete from favourites</div>
+                                <div className="title" name={article.title}>{article.title}</div>
+                                        <div className="date">{new Date(article.createDate).toLocaleDateString()}</div>
+                                    </div>
                             </div>
                         </div>
 

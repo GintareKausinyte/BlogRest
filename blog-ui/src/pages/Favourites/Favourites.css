@@ -17,3 +17,18 @@
     float: left;
     color: rgba(51, 51, 51, 0.315);
 }
+.del-fav{
+    background-color:  rgba(97, 97, 97, 0.075);
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    padding: 1px;
+    margin-left: 55px;
+    color: rgba(0, 0, 0, 0.466);
+    border-radius: 2px;
+    float: left;
+}
+.del-fav:hover{
+    cursor: pointer;
+    /* background-color: rgba(143, 3, 3, 0.137); */
+    background-color: #08a0a841;
+    }
